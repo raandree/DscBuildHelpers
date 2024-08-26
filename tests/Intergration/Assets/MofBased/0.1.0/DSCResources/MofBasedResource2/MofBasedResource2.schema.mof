@@ -1,0 +1,37 @@
+[ClassVersion("1.0.0.0"), FriendlyName("MofBasedResource2")]
+class MofBasedResource2 : OMI_BaseResource
+{
+    [Key, Description("")] String Key;
+    [Write, Description(""), EmbeddedInstance("CustomObject1")] String Object1Group[];
+    [Write, Description(""), EmbeddedInstance("CustomObject1")] String Object1;
+    [Write, Description(""), EmbeddedInstance("CustomObject2")] String Object2;
+};
+
+[ClassVersion("1.0.0")]
+class CustomObject1
+{
+    [Write, Description("")] String String1;
+    [Write, Description("")] Boolean Bool1;
+};
+
+[ClassVersion("1.0.0")]
+class CustomObject2
+{
+    [Write, Description(""), EmbeddedInstance("CustomObject21")] String Object1;
+    [Write, Description(""), EmbeddedInstance("CustomObject21")] String Object1Group[];
+    [Write, Description(""), EmbeddedInstance("CustomObject22")] String Object2;
+};
+
+[ClassVersion("1.0.0")]
+class CustomObject21
+{
+    [Write, Description("")] String String1;
+    [Write, Description("")] Boolean Bool1;
+};
+
+[ClassVersion("1.0.0")]
+class CustomObject22
+{
+    [Write, Description("")] String String1;
+    [Write, Description("")] Boolean Bool1;
+};
