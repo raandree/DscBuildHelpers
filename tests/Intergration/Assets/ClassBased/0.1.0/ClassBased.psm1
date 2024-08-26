@@ -1,11 +1,13 @@
-enum Ensure {
+enum Ensure
+{
     Absent
     Present
     Unknown
 }
 
 [DscResource()]
-class ClassBasedResource1 {
+class ClassBasedResource1
+{
     [DscProperty(Key = $true)]
     [string]$Key1
 
@@ -22,27 +24,32 @@ class ClassBasedResource1 {
     [Ensure]
     $Ensure
 
-    ClassBasedResource1() {
+    ClassBasedResource1()
+    {
         $this.Ensure = 'Present'
     }
 
-    [bool]Test() {
+    [bool]Test()
+    {
         return $true
     }
 
-    [ClassBasedResource1]Get() {
+    [ClassBasedResource1]Get()
+    {
         $currentState = [ClassBasedResource1]::new()
 
         return $currentState
     }
 
-    [void]Set() {
+    [void]Set()
+    {
 
     }
 }
 
 [DscResource()]
-class ClassBasedResource2 {
+class ClassBasedResource2
+{
     [DscProperty(Key = $true)]
     [string]$Key
 
@@ -58,46 +65,55 @@ class ClassBasedResource2 {
     [DscProperty()]
     [Ensure]$Ensure
 
-    ClassBasedResource2() {
+    ClassBasedResource2()
+    {
         $this.Ensure = 'Present'
     }
 
-    [bool]Test() {
+    [bool]Test()
+    {
         return $true
     }
 
-    [ClassBasedResource2]Get() {
+    [ClassBasedResource2]Get()
+    {
         $currentState = [ClassBasedResource2]::new()
 
         return $currentState
     }
 
-    [void]Set() {
-        
+    [void]Set()
+    {
+
     }
 }
 
-class CustomObject1 {
+class CustomObject1
+{
     [DscProperty()]
     [string]$String1
 
     [DscProperty()]
     [bool]$Bool1
 
-    CustomObject1() {
+    CustomObject1()
+    {
     }
 }
 
-class CustomObject1Group {
+class CustomObject1Group
+{
     [DscProperty()]
     [CustomObject1[]]$CustomObjects
 
-    CustomObject1Group() {
+    CustomObject1Group()
+    {
     }
 }
 
 
-class CustomObject2 {
+class CustomObject2
+{
     [DscProperty()]
     [CustomObject21]$Object1
 
@@ -107,28 +123,33 @@ class CustomObject2 {
     [DscProperty()]
     [CustomObject22]$Object2
 
-    CustomObject2() {
+    CustomObject2()
+    {
     }
 }
 
-class CustomObject21 {
+class CustomObject21
+{
     [DscProperty()]
     [string]$String1
 
     [DscProperty()]
     [bool]$Bool1
 
-    CustomObject21() {
+    CustomObject21()
+    {
     }
 }
 
-class CustomObject22 {
+class CustomObject22
+{
     [DscProperty()]
     [string]$String1
 
     [DscProperty()]
     [bool]$Bool1
 
-    CustomObject22() {
+    CustomObject22()
+    {
     }
 }

@@ -1,4 +1,5 @@
-function Get-TargetResource {
+function Get-TargetResource
+{
     [CmdletBinding()]
     [OutputType([System.Collections.Hashtable])]
     param
@@ -6,19 +7,19 @@ function Get-TargetResource {
         [Parameter(Mandatory = $true)]
         [System.String]
         $Key1,
-        
+
         [Parameter(Mandatory = $true)]
         [System.String]
         $Key2,
-        
+
         [Parameter(Mandatory = $true)]
         [System.String]
         $String1,
-        
+
         [Parameter()]
         [bool]
         $Bool1,
-        
+
         [Parameter()]
         [System.String]
         [ValidateSet('Absent', 'Present')]
@@ -28,26 +29,27 @@ function Get-TargetResource {
     return @{}
 }
 
-function Set-TargetResource {
+function Set-TargetResource
+{
     [CmdletBinding()]
     param
     (
         [Parameter(Mandatory = $true)]
         [System.String]
         $Key1,
-        
+
         [Parameter(Mandatory = $true)]
         [System.String]
         $Key2,
-        
+
         [Parameter(Mandatory = $true)]
         [System.String]
         $String1,
-        
+
         [Parameter()]
         [bool]
         $Bool1,
-        
+
         [Parameter()]
         [System.String]
         [ValidateSet('Absent', 'Present')]
@@ -55,7 +57,8 @@ function Set-TargetResource {
     )
 }
 
-function Test-TargetResource {
+function Test-TargetResource
+{
     [CmdletBinding()]
     [OutputType([System.Boolean])]
     param
@@ -63,19 +66,19 @@ function Test-TargetResource {
         [Parameter(Mandatory = $true)]
         [System.String]
         $Key1,
-        
+
         [Parameter(Mandatory = $true)]
         [System.String]
         $Key2,
-        
+
         [Parameter(Mandatory = $true)]
         [System.String]
         $String1,
-        
+
         [Parameter()]
         [bool]
         $Bool1,
-        
+
         [Parameter()]
         [System.String]
         [ValidateSet('Absent', 'Present')]
