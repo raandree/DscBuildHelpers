@@ -46,7 +46,6 @@ function Get-DscResourceProperty
 
     foreach ($key in $resourceProperties.Keys)
     {
-
         $resourceProperty = $resourceProperties.$key
 
         $dscClassParameterInfo = & $ModuleInfo {
@@ -57,8 +56,9 @@ function Get-DscResourceProperty
             )
 
             $result = @{
-                ElementType = $null
-                Type        = $null
+                ElementType         = $null
+                Type                = $null
+                IsArray             = $false
             }
 
             try
@@ -68,6 +68,7 @@ function Get-DscResourceProperty
                 if ($result.Type.IsArray)
                 {
                     $result.ElementType = $result.Type.GetElementType().FullName
+                    $result.IsArray = $true
                 }
             }
             catch
@@ -78,19 +79,28 @@ function Get-DscResourceProperty
 
         } $resourceProperty.TypeConstraint
 
+        $isArrayType = if ($null -ne $dscClassParameterInfo.Type){
+            $dscClassParameterInfo.IsArray
+        }
+        else
+        {
+            $resourceProperty.TypeConstraint -match '.+\[\]'
+        }
+
         [PSCustomObject]@{
-            Name           = $resourceProperty.Name
-            ModuleName     = $ModuleInfo.Name
-            ResourceName   = $ResourceName
-            TypeConstraint = $resourceProperty.TypeConstraint
-            Attributes     = $resourceProperty.Attributes
-            Values         = $resourceProperty.Values
-            ValueMap       = $resourceProperty.ValueMap
-            Mandatory      = $resourceProperty.Mandatory
-            IsKey          = $resourceProperty.IsKey
-            Range          = $resourceProperty.Range
-            ElementType    = $dscClassParameterInfo.ElementType
-            Type           = $dscClassParameterInfo.Type
+            Name                = $resourceProperty.Name
+            ModuleName          = $ModuleInfo.Name
+            ResourceName        = $ResourceName
+            TypeConstraint      = $resourceProperty.TypeConstraint
+            Attributes          = $resourceProperty.Attributes
+            Values              = $resourceProperty.Values
+            ValueMap            = $resourceProperty.ValueMap
+            Mandatory           = $resourceProperty.Mandatory
+            IsKey               = $resourceProperty.IsKey
+            Range               = $resourceProperty.Range
+            IsArray             = $isArrayType
+            ElementType         = $dscClassParameterInfo.ElementType
+            Type                = $dscClassParameterInfo.Type
         }
     }
 }

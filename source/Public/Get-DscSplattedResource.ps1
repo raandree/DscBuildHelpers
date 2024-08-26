@@ -1,7 +1,7 @@
 function Get-DscSplattedResource
 {
     [CmdletBinding()]
-    Param (
+    param (
         [Parameter(Mandatory = $true)]
         [String]
         $ResourceName,
@@ -43,95 +43,16 @@ function Get-DscSplattedResource
         $null = $stringBuilder.AppendLine("$ResourceName {")
     }
 
-    foreach ($PropertyName in $Properties.Keys)
+    foreach ($propertyName in $Properties.Keys)
     {
-
-        $cimType = $allDscResourcePropertiesTable."$ResourceName-$PropertyName"
-        if ($cimType)
+        $cimProperty = Get-CimType -DscResourceName $ResourceName -PropertyName $propertyName
+        if ($cimProperty)
         {
-            $isCimArray = $cimType.TypeConstraint.EndsWith('[]')
-            $cimProperties = $Properties.$PropertyName
-            $null = $stringBuilder.AppendLine("$PropertyName = {0}" -f $(if ($isCimArray)
-                    {
-                        '@('
-                    }
-                    else
-                    {
-                        "$($cimType.TypeConstraint.Replace('[]', '')) {"
-                    }))
-            if ($isCimArray)
-            {
-                if ($Properties.$PropertyName -isnot [array])
-                {
-                    Write-Warning -Message "The property '$PropertyName' is an array and the BindingInfo data is not an array" -ErrorAction Stop
-                }
-
-                $i = 0
-                foreach ($cimPropertyValue in $cimProperties)
-                {
-                    $null = $stringBuilder.AppendLine($cimType.TypeConstraint.Replace('[]', ''))
-                    $null = $stringBuilder.AppendLine('{')
-
-                    foreach ($cimSubProperty in $cimPropertyValue.GetEnumerator())
-                    {
-                        if ($cimType.Type.GetElementType().GetProperty($cimSubProperty.Name).PropertyType.IsArray)
-                        {
-                            $null = $stringBuilder.AppendLine("$($cimSubProperty.Name) = @(")
-                            $arrayItemTypeName = $cimType.Type.GetElementType().GetProperty($cimSubProperty.Name).PropertyType.GetElementType().Name
-
-                            $j = 0
-
-                            $isCimSubArray = $cimType.Type.GetElementType().GetProperty($cimSubProperty.Name).PropertyType.GetElementType().FullName -notin $standardCimTypes.DotNetType
-
-                            foreach ($arrayItem in $cimSubProperty.Value)
-                            {
-                                if ($isCimSubArray)
-                                {
-                                    $null = $stringBuilder.AppendLine("$arrayItemTypeName {")
-
-                                    foreach ($arrayItemKey in $arrayItem.Keys)
-                                    {
-                                        $null = $stringBuilder.AppendLine("$arrayItemKey = `$Parameters['$PropertyName'][$($i)]['$($cimSubProperty.Name)'][$($j)]['$($arrayItemKey)']")
-                                    }
-
-                                    $null = $stringBuilder.AppendLine('}')
-                                }
-                                else
-                                {
-                                    $null = $stringBuilder.AppendLine("@(`$Parameters['$PropertyName'][$($i)]['$($cimSubProperty.Name)'])[$($j)]")
-                                }
-                                $j++
-                            }
-                            $null = $stringBuilder.AppendLine(')')
-                        }
-                        else
-                        {
-                            $null = $stringBuilder.AppendLine("$($cimSubProperty.Name) = `$Parameters['$PropertyName'][$($i)]['$($cimSubProperty.Name)']")
-                        }
-                    }
-
-                    $null = $stringBuilder.AppendLine('}')
-                    $i++
-                }
-
-                $null = $stringBuilder.AppendLine('{0}' -f $(if ($isCimArray)
-                        {
-                            ')'
-                        }))
-            }
-            else
-            {
-                foreach ($cimProperty in $cimProperties.GetEnumerator())
-                {
-                    $null = $stringBuilder.AppendLine("$($cimProperty.Name) = `$Parameters['$PropertyName']['$($($cimProperty.Name))']")
-                }
-
-                $null = $stringBuilder.AppendLine('}')
-            }
+            Write-CimProperty -StringBuilder $stringBuilder -CimProperty $cimProperty -Path $propertyName -ResourceName $ResourceName
         }
         else
         {
-            $null = $stringBuilder.AppendLine("$PropertyName = `$Parameters['$PropertyName']")
+            $null = $stringBuilder.AppendLine("$propertyName = `$Parameters['$propertyName']")
         }
     }
 
