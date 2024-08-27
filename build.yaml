@@ -15,14 +15,9 @@ BuiltModuleSubdirectory: module
 Pester:
   Configuration:
     Run:
-      # Default is to use the tests folder in the project folder or source folder (if present)
-      # can use it to prioritize: tests/QA, tests/Unit, tests/Integration
       Path:
         - tests/QA
-        - tests/Unit
-        #- tests/Unit/Public/Add-Sample.tests.ps1
-        #- tests/Unit/Public/New-SampleModule.tests.ps1
-        #- tests/Integration
+        - tests/Integration
     Output:
       Verbosity: Detailed
       StackTraceVerbosity: Full
@@ -103,6 +98,8 @@ BuildWorkflow:
     - Invoke_HQRM_Tests_Stop_On_Fail
 
   test:
+    - TestPowerShell7
+    - Set_PSModulePath
     - Pester_Tests_Stop_On_Fail
     - Pester_If_Code_Coverage_Under_Threshold
     - hqrmtest
@@ -146,3 +143,13 @@ GitHubConfig:
 DscResource.DocGenerator:
   Generate_Conceptual_Help:
     BuiltModuleSubdirectory: Module
+
+####################################################
+#           Setting Sampler PSModulePath           #
+####################################################
+SetPSModulePath:
+  PSModulePath: $ProjectPath\tests\Integration\Assets\DscResources;$([System.Environment]::GetFolderPath('ProgramFiles'))\WindowsPowerShell\Modules;$([System.Environment]::GetFolderPath('System'))\WindowsPowerShell\v1.0\Modules
+  RemovePersonal: false
+  RemoveProgramFiles: false
+  RemoveWindows: false
+  SetSystemDefault: false
