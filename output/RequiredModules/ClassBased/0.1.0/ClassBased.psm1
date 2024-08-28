@@ -17,6 +17,9 @@ class ClassBasedResource1
     [DscProperty(Mandatory = $true)]
     [string]$String1
 
+    [DscProperty()]
+    [string]$String2
+
     [DscProperty(Mandatory = $true)]
     [string[]]$Strings1
 
