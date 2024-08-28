@@ -99,7 +99,6 @@ BuildWorkflow:
 
   test:
     - TestPowerShell7
-    - Set_PSModulePath
     - Pester_Tests_Stop_On_Fail
     - Pester_If_Code_Coverage_Under_Threshold
     - hqrmtest
@@ -143,13 +142,3 @@ GitHubConfig:
 DscResource.DocGenerator:
   Generate_Conceptual_Help:
     BuiltModuleSubdirectory: Module
-
-####################################################
-#           Setting Sampler PSModulePath           #
-####################################################
-SetPSModulePath:
-  PSModulePath: $ProjectPath\tests\Integration\Assets\DscResources;$([System.Environment]::GetFolderPath('ProgramFiles'))\WindowsPowerShell\Modules;$([System.Environment]::GetFolderPath('System'))\WindowsPowerShell\v1.0\Modules
-  RemovePersonal: false
-  RemoveProgramFiles: false
-  RemoveWindows: false
-  SetSystemDefault: false
