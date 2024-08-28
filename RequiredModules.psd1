@@ -19,6 +19,7 @@
     'DscResource.AnalyzerRules'  = 'latest'
     'DscResource.DocGenerator'   = 'latest'
     datum                        = 'latest'
+    'Datum.ProtectedData'        = 'latest'
 
     xDscResourceDesigner         = 'latest'
     xPSDesiredStateConfiguration = 'latest'
