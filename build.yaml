@@ -69,10 +69,8 @@ DscTest:
   Script:
     ExcludeSourceFile:
       - output
-      - Modules/DscResource.Common
     ExcludeModuleFile:
       - Templates
-      - Modules/DscResource.Common
     MainGitBranch: main
 
 ####################################################
