@@ -103,6 +103,12 @@ configuration TestConfig {
 
         Write-Host -------------------------------------------------------- -ForegroundColor Magenta
         Write-Host "Data in '`$configurationData.Datum.Config.'$configPath'' is:"
+
+        Write-Host -------------------------------------------------------- -ForegroundColor Magenta
+        Write-Host "Properties of configuration data:" -ForegroundColor Magenta
+        $configurationData.Datum.Config | Get-Member -MemberType ScriptProperty| Select-Object -Property Name | Out-String | Write-Host -ForegroundColor Magenta
+        Write-Host -------------------------------------------------------- -ForegroundColor Magenta
+
         $configurationData.Datum.Config."$configPath" | Out-String | Write-Host -ForegroundColor Magenta
 
         $data = $configurationData.Datum.Config."$configPath"
