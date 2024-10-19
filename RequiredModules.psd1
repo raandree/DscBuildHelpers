@@ -1,4 +1,11 @@
 @{
+    PSDependOptions              = @{
+        AddToPath  = $true
+        Target     = 'output\RequiredModules'
+        Parameters = @{
+            Repository = 'PSGallery'
+        }
+    }
 
     InvokeBuild                  = 'latest'
     PSScriptAnalyzer             = 'latest'
@@ -8,12 +15,7 @@
     ModuleBuilder                = 'latest'
     MarkdownLinkCheck            = 'latest'
     ChangelogManagement          = 'latest'
-    Sampler                      = @{
-        Version    = 'latest'
-        Parameters = @{
-            AllowPrerelease = $true
-        }
-    }
+    Sampler                      = 'latest'
     'Sampler.GitHubTasks'        = 'latest'
     'DscResource.Test'           = 'latest'
     'DscResource.AnalyzerRules'  = 'latest'
