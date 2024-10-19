@@ -39,13 +39,14 @@ class FileProvider : DatumProvider
             if ($_.PSIsContainer)
             {
                 $val = [scriptblock]::Create("New-DatumFileProvider -Path `"$($_.FullName)`" -Store `$this.DataOptions -DatumHierarchyDefinition `$this.DatumHierarchyDefinition -Encoding `$this.Encoding")
-                Write-Host "xxxxxxxxxxxxx: $val" -ForegroundColor Cyan
 
+                $this | Add-Member -MemberType NoteProperty -Name "N$($_.BaseName)" -Value $val
                 $this | Add-Member -MemberType ScriptProperty -Name $_.BaseName -Value $val
             }
             else
             {
                 $val = [scriptblock]::Create("Get-FileProviderData -Path `"$($_.FullName)`" -DatumHandlers `$this.DatumHandlers -Encoding `$this.Encoding")
+                $this | Add-Member -MemberType NoteProperty -Name "N$($_.BaseName)" -Value $val
                 $this | Add-Member -MemberType ScriptProperty -Name $_.BaseName -Value $val
             }
         }
