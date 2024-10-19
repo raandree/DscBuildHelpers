@@ -39,7 +39,7 @@ class FileProvider : DatumProvider
             if ($_.PSIsContainer)
             {
                 $val = [scriptblock]::Create("New-DatumFileProvider -Path `"$($_.FullName)`" -Store `$this.DataOptions -DatumHierarchyDefinition `$this.DatumHierarchyDefinition -Encoding `$this.Encoding")
-                Write-Host $val -ForegroundColor Cyan
+                Write-Host "xxxxxxxxxxxxx: $val" -ForegroundColor Cyan
 
                 $this | Add-Member -MemberType ScriptProperty -Name $_.BaseName -Value $val
             }
