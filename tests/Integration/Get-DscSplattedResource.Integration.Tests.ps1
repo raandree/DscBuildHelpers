@@ -98,8 +98,15 @@ configuration TestConfig {
         $dscConfiguration = $dscConfiguration.Replace('<DscResourceName>', $dscResourceName)
         $dscConfiguration = $dscConfiguration.Replace('<ConfigPath>', $configPath)
 
-        Write-Host "Config path is: $configurationData.Datum.Config.$configPath" -ForegroundColor Magenta
+        Write-Host "Config path is: `$configurationData.Datum.Config.$configPath" -ForegroundColor Magenta
+
+
+        Write-Host -------------------------------------------------------- -ForegroundColor Magenta
+        Write-Host "Data in '`$configurationData.Datum.Config.$configPath' is:"
+        $configurationData.Datum.Config.$configPath | Out-String | Write-Host -ForegroundColor Magenta
+
         $data = $configurationData.Datum.Config.$configPath
+
         Write-Host -------------------------------------------------------- -ForegroundColor Magenta
         Write-Host "Content of data:" -ForegroundColor Magenta
         $dataJson = $data | ConvertTo-Json -Depth 10
