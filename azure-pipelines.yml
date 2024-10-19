@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-    - main
+    - '*'
   paths:
     exclude:
     - CHANGELOG.md
@@ -37,6 +37,7 @@ stages:
             displayName: Calculate ModuleVersion (GitVersion)
 
           - task: PowerShell@2
+            enabled: false
             name: package
             displayName: 'Build & Package Module'
             inputs:
