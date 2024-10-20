@@ -38,13 +38,17 @@ class FileProvider : DatumProvider
         $result = Get-ChildItem -Path $path | ForEach-Object {
             if ($_.PSIsContainer)
             {
-                $val = [scriptblock]::Create("New-DatumFileProvider -Path `"$($_.FullName)`" -Store `$this.DataOptions -DatumHierarchyDefinition `$this.DatumHierarchyDefinition -Encoding `$this.Encoding")
+                $s = "New-DatumFileProvider -Path `"$($_.FullName)`" -Store `$this.DataOptions -DatumHierarchyDefinition `$this.DatumHierarchyDefinition -Encoding `$this.Encoding"
+                $val = [scriptblock]::Create($s)
                 $this | Add-Member -MemberType ScriptProperty -Name $_.BaseName -Value $val
+                $this | Add-Member -MemberType NoteProperty -Name "x$($_.BaseName)" -Value $s
             }
             else
             {
-                $val = [scriptblock]::Create("Get-FileProviderData -Path `"$($_.FullName)`" -DatumHandlers `$this.DatumHandlers -Encoding `$this.Encoding")
+                $s = "Get-FileProviderData -Path `"$($_.FullName)`" -DatumHandlers `$this.DatumHandlers -Encoding `$this.Encoding"
+                $val = [scriptblock]::Create($s)
                 $this | Add-Member -MemberType ScriptProperty -Name $_.BaseName -Value $val
+                $this | Add-Member -MemberType NoteProperty -Name "x$($_.BaseName)" -Value $s
             }
         }
     }
