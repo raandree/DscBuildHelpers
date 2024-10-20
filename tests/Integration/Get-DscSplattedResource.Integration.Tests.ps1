@@ -101,6 +101,10 @@ configuration TestConfig {
         $data = $configurationData.Datum.Config."$configPath"
         if ($null -eq $data)
         {
+            Write-Host +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -ForegroundColor Yellow
+            Invoke-Expression -Command $configurationData.Datum.Config."x$configPath"
+            Write-Host +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -ForegroundColor Yellow
+
             Start-Sleep -Milliseconds 200
             $data = $configurationData.Datum.Config."$configPath"
         }

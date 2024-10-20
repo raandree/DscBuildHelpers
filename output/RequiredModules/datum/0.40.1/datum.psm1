@@ -42,15 +42,15 @@ class FileProvider : DatumProvider
                 $this | Add-Member -MemberType ScriptProperty -Name $_.BaseName -Value $val
 
                 $s = "New-DatumFileProvider -Path `"$($_.FullName)`" -Store `$configurationData.Datum.__Definition.DatumStructure -DatumHierarchyDefinition `$configurationData.Datum.__Definition -Encoding Default"
-                $this | Add-Member -MemberType ScriptProperty -Name "x$($_.BaseName)" -Value $s
+                $this | Add-Member -MemberType NoteProperty -Name "x$($_.BaseName)" -Value $s
             }
             else
             {
                 $val = [scriptblock]::Create("Get-FileProviderData -Path `"$($_.FullName)`" -DatumHandlers `$this.DatumHandlers -Encoding `$this.Encoding")
                 $this | Add-Member -MemberType ScriptProperty -Name $_.BaseName -Value $val
 
-                $s = "Get-FileProviderData -Path `"$($_.FullName)`" -DatumHandlers `$this.DatumHandlers -Encoding `$this.Encoding"
-                $this | Add-Member -MemberType ScriptProperty -Name "x$($_.BaseName)" -Value $val
+                $s = "Get-FileProviderData -Path `"$($_.FullName)`" -DatumHandlers `$configurationData.Datum.__Definition.DatumHandlers -Encoding Default"
+                $this | Add-Member -MemberType NoteProperty -Name "x$($_.BaseName)" -Value $s
             }
         }
     }
