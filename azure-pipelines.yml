@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-    - main
+    - '*'
   paths:
     exclude:
     - CHANGELOG.md
@@ -36,15 +36,15 @@ stages:
               Write-Host -Object "##vso[build.updatebuildnumber]$($gitVersionObject.FullSemVer)"
             displayName: Calculate ModuleVersion (GitVersion)
 
-          - task: PowerShell@2
-            name: package
-            displayName: 'Build & Package Module'
-            inputs:
-              filePath: './build.ps1'
-              arguments: '-ResolveDependency -tasks pack'
-              pwsh: true
-            env:
-              ModuleVersion: $(NuGetVersionV2)
+          #- task: PowerShell@2
+          #  name: package
+          #  displayName: 'Build & Package Module'
+          #  inputs:
+          #    filePath: './build.ps1'
+          #    arguments: '-ResolveDependency -tasks pack'
+          #    pwsh: true
+          #  env:
+          #    ModuleVersion: $(NuGetVersionV2)
 
           - task: PublishPipelineArtifact@1
             displayName: 'Publish Build Artifact'
