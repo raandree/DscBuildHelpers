@@ -104,7 +104,7 @@ configuration TestConfig {
         Write-Host -------------------------------------------------------- -ForegroundColor Magenta
         $dataJson | Measure-Object -Line -Character -Word | Out-String | Write-Host -ForegroundColor Magenta
         Write-Host -------------------------------------------------------- -ForegroundColor Magenta
-        $dataJson | Measure-Object -Line -Character -Word | Out-String | Write-Host -ForegroundColor Magenta
+        $dataJson | Out-String | Write-Host -ForegroundColor Magenta
         Write-Host -------------------------------------------------------- -ForegroundColor Magenta
         Invoke-Expression -Command $dscConfiguration
 
