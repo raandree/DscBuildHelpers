@@ -53,6 +53,7 @@ function Get-RequiredModulesFromMOF
         required modules.
     #>
     [CmdletBinding()]
+    [OutputType([hashtable])]
     param (
         [Parameter(Mandatory = $true, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true)]
         [System.String]
@@ -73,7 +74,6 @@ function Get-RequiredModulesFromMOF
                 ## We have a new instance so write the existing one
                 if (($null -ne $moduleName) -and ($null -ne $moduleVersion))
                 {
-
                     $modules[$moduleName] = $moduleVersion
                     $moduleName = $null
                     $moduleVersion = $null
@@ -148,7 +148,7 @@ function Get-StandardCimType
     try
     {
         $types.GetEnumerator() | ForEach-Object {
-            $null = Invoke-Expression -Command "[$($_.Value)]" -ErrorAction Stop
+            $null = Invoke-Command -ScriptBlock ([scriptblock]::Create("[$($_.Value)]")) -ErrorAction Stop
             [PSCustomObject]@{
                 CimType    = $_.Key
                 DotNetType = $_.Value
@@ -247,6 +247,7 @@ function Resolve-ModuleMetadataFile
 
 function Clear-CachedDscResource
 {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWMICmdlet', '', Justification = 'Not possible via CIM')]
     [CmdletBinding(SupportsShouldProcess = $true)]
     param ()
 
@@ -273,21 +274,21 @@ function Clear-CachedDscResource
         Get-DscResourceWmiClass -Class tmp* | Remove-DscResourceWmiClass
     }
 }
-#EndRegion '.\Public\Clear-CachedDscResource.ps1' 29
+#EndRegion '.\Public\Clear-CachedDscResource.ps1' 30
 #Region '.\Public\Compress-DscResourceModule.ps1' -1
 
 function Compress-DscResourceModule
 {
     [CmdletBinding(SupportsShouldProcess = $true)]
     param (
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
         [String]
         $DscBuildOutputModules,
 
-        [Parameter(Mandatory, ValueFromPipeline)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [AllowNull()]
-        [psmoduleinfo[]]
+        [PSModuleInfo[]]
         $Modules
     )
 
@@ -338,7 +339,7 @@ function Find-ModuleToPublish
 
     $modulesAvailable = Get-ModuleFromFolder -ModuleFolder $DscBuildSourceResources -ExcludedModules $ExcludedModules
 
-    Foreach ($module in $modulesAvailable)
+    foreach ($module in $modulesAvailable)
     {
         $publishTargetZip = [System.IO.Path]::Combine(
             $DscBuildOutputModules,
@@ -369,6 +370,7 @@ function Find-ModuleToPublish
 
 function Get-DscCimInstanceReference
 {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='For debugging purposes')]
     param (
         [Parameter(Mandatory = $true)]
         [string]
@@ -397,7 +399,7 @@ function Get-DscCimInstanceReference
         Write-Host "No DSC Resource Properties metadata was found, cannot translate CimInstance parameters. Call 'Initialize-DscResourceMetaInfo' first is this is needed."
     }
 }
-#EndRegion '.\Public\Get-DscCimInstanceReference.ps1' 31
+#EndRegion '.\Public\Get-DscCimInstanceReference.ps1' 32
 #Region '.\Public\Get-DscFailedResource.ps1' -1
 
 function Get-DscFailedResource
@@ -439,7 +441,8 @@ function Get-DscFailedResource
 
 function Get-DscResourceFromModuleInFolder
 {
-    [cmdletbinding()]
+    [CmdletBinding()]
+    [OutputType([object[]])]
     param (
         [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
         [ValidateNotNullOrEmpty()]
@@ -480,7 +483,6 @@ function Get-DscResourceFromModuleInFolder
 
             foreach ($module in $Modules)
             {
-
                 if (-not (Compare-Object -ReferenceObject $dscResource.Module -DifferenceObject $Module -Property ModuleType, Version, Name))
                 {
                     Write-Debug "Resource $($dscResource.Name) matches one of the supplied Modules."
@@ -503,15 +505,15 @@ function Get-DscResourceProperty
 {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory, ParameterSetName = 'ModuleInfo')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'ModuleInfo')]
         [System.Management.Automation.PSModuleInfo]
         $ModuleInfo,
 
-        [Parameter(Mandatory, ParameterSetName = 'ModuleName')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'ModuleName')]
         [string]
         $ModuleName,
 
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory = $true)]
         [string]
         $ResourceName
     )
@@ -535,7 +537,7 @@ function Get-DscResourceProperty
     $foundCimSchema = [Microsoft.PowerShell.DesiredStateConfiguration.Internal.DscClassCache]::ImportCimKeywordsFromModule($ModuleInfo, $ResourceName, [ref] $SchemaFilePath, $functionsToDefine, $keywordErrors)
     if ($foundCimSchema)
     {
-        $foundScriptSchema = [Microsoft.PowerShell.DesiredStateConfiguration.Internal.DscClassCache]::ImportScriptKeywordsFromModule($ModuleInfo, $ResourceName, [ref] $SchemaFilePath, $functionsToDefine)
+        [void][Microsoft.PowerShell.DesiredStateConfiguration.Internal.DscClassCache]::ImportScriptKeywordsFromModule($ModuleInfo, $ResourceName, [ref] $SchemaFilePath, $functionsToDefine)
     }
     else
     {
@@ -547,7 +549,6 @@ function Get-DscResourceProperty
 
     foreach ($key in $resourceProperties.Keys)
     {
-
         $resourceProperty = $resourceProperties.$key
 
         $dscClassParameterInfo = & $ModuleInfo {
@@ -564,7 +565,7 @@ function Get-DscResourceProperty
 
             try
             {
-                $result.Type = Invoke-Expression "[$($TypeName)]"
+                $result.Type = Invoke-Command -ScriptBlock ([scriptblock]::Create("[$($TypeName)]"))
 
                 if ($result.Type.IsArray)
                 {
@@ -573,6 +574,7 @@ function Get-DscResourceProperty
             }
             catch
             {
+                Write-Verbose "The type '$TypeName' could not be resolved."
             }
 
             return $result
@@ -610,9 +612,11 @@ function Get-DscResourceWmiClass
         .Example
             Get-DscResourceWmiClass -Class 'MSFT_UserResource'
     #>
+    [CmdletBinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWMICmdlet', '', Justification = 'Not possible via CIM')]
     param (
         #The WMI Class name search for. Supports wildcards.
-        [parameter(ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true)]
         [Alias('Name')]
         [string]
         $Class
@@ -628,13 +632,14 @@ function Get-DscResourceWmiClass
         Get-WmiObject -Namespace $dscNamespace -List @PSBoundParameters
     }
 }
-#EndRegion '.\Public\Get-DscResourceWmiClass.ps1' 31
+#EndRegion '.\Public\Get-DscResourceWmiClass.ps1' 33
 #Region '.\Public\Get-DscSplattedResource.ps1' -1
 
 function Get-DscSplattedResource
 {
     [CmdletBinding()]
-    Param (
+    [OutputType([scriptblock])]
+    param (
         [Parameter(Mandatory = $true)]
         [String]
         $ResourceName,
@@ -678,7 +683,6 @@ function Get-DscSplattedResource
 
     foreach ($PropertyName in $Properties.Keys)
     {
-
         $cimType = $allDscResourcePropertiesTable."$ResourceName-$PropertyName"
         if ($cimType)
         {
@@ -827,7 +831,7 @@ function Get-ModuleFromFolder
         }
     }
 
-    End
+    end
     {
 
         $allModulesInFolder | Where-Object {
@@ -867,7 +871,7 @@ function Get-ModuleFromFolder
 function Initialize-DscResourceMetaInfo
 {
     param (
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory = $true)]
         [string]
         $ModulePath,
 
@@ -1039,7 +1043,7 @@ function Push-DscConfiguration
 {
     [CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = 'High')]
     [OutputType([void])]
-    Param (
+    param (
         [Parameter(Mandatory = $true, Position = 0, ValueFromPipelineByPropertyName)]
         [ValidateNotNullOrEmpty()]
         [System.Management.Automation.Runspaces.PSSession]
@@ -1134,7 +1138,7 @@ function Push-DscModuleToNode
 {
     [CmdletBinding()]
     [OutputType([void])]
-    Param (
+    param (
         # Param1 help description
         [Parameter(Mandatory = $true, Position = 0, ValueFromPipelineByPropertyName = $true, ValueFromRemainingArguments = $true)]
         [Alias('ModuleInfo')]
@@ -1208,14 +1212,24 @@ function Push-DscModuleToNode
         foreach ($module in $missingModules)
         {
             $fileName = "$($StagingFolderPath)/$($module.Name)_$($module.Version).zip"
-            if ($Force -or -not (Invoke-Command -Session $Session -ScriptBlock {
-                        param ($FileName)
-                        Test-Path -Path $FileName
-                    } -ArgumentList $fileName))
+            $testPathResult = Invoke-Command -Session $Session -ScriptBlock {
+                param (
+                    [Parameter(Mandatory = $true)]
+                    [string]
+                    $FileName
+                )
+                Test-Path -Path $FileName
+            } -ArgumentList $fileName
+
+            if ($Force -or -not ($testPathResult))
             {
                 Write-Verbose "Copying '$fileName*' to '$ResolvedRemoteStagingPath'."
                 Invoke-Command -Session $Session -ScriptBlock {
-                    param ($PathToZips)
+                    param (
+                        [Parameter(Mandatory = $true)]
+                        [string]
+                        $PathToZips
+                    )
                     if (-not (Test-Path -Path $PathToZips))
                     {
                         mkdir -Path $PathToZips -Force
@@ -1239,7 +1253,12 @@ function Push-DscModuleToNode
         # Extract missing modules on remote node to PSModulePath
         Write-Verbose "Expanding '$resolvedRemoteStagingPath/*.zip' to '$env:CommonProgramW6432\WindowsPowerShell\Modules\$($Module.Name)\$($module.version)'."
         Invoke-Command -Session $Session -ScriptBlock {
-            param ($MissingModules, $PathToZips)
+            param (
+                [Parameter()]
+                $MissingModules,
+                [Parameter()]
+                $PathToZips
+            )
             foreach ($module in $MissingModules)
             {
                 $fileName = "$($module.Name)_$($module.version).zip"
@@ -1249,7 +1268,7 @@ function Push-DscModuleToNode
         } -ArgumentList $missingModules, $resolvedRemoteStagingPath
     }
 }
-#EndRegion '.\Public\Push-DscModuleToNode.ps1' 150
+#EndRegion '.\Public\Push-DscModuleToNode.ps1' 165
 #Region '.\Public\Remove-DscResourceWmiClass.ps1' -1
 
 <#
@@ -1264,6 +1283,7 @@ function Push-DscModuleToNode
 #>
 function Remove-DscResourceWmiClass
 {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWMICmdlet', '', Justification = 'Not possible via CIM')]
     [CmdletBinding()]
     param (
         #The WMI Class name to remove.  Supports wildcards.
@@ -1284,7 +1304,7 @@ function Remove-DscResourceWmiClass
         (Get-WmiObject -Namespace $dscNamespace -List -Class $ResourceType).psbase.Delete()
     }
 }
-#EndRegion '.\Public\Remove-DscResourceWmiClass.ps1' 33
+#EndRegion '.\Public\Remove-DscResourceWmiClass.ps1' 34
 #Region '.\Public\Test-DscResourceFromModuleInFolderIsValid.ps1' -1
 
 function Test-DscResourceFromModuleInFolderIsValid

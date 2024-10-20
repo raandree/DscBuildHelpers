@@ -19,11 +19,13 @@
 
     FunctionsToExport = @('Clear-CachedDscResource','Compress-DscResourceModule','Find-ModuleToPublish','Get-DscCimInstanceReference','Get-DscFailedResource','Get-DscResourceFromModuleInFolder','Get-DscResourceProperty','Get-DscResourceWmiClass','Get-DscSplattedResource','Get-ModuleFromFolder','Initialize-DscResourceMetaInfo','Publish-DscConfiguration','Publish-DscResourceModule','Push-DscConfiguration','Push-DscModuleToNode','Remove-DscResourceWmiClass','Test-DscResourceFromModuleInFolderIsValid')
 
+    AliasesToExport = ''
+
     PrivateData       = @{
 
         PSData = @{
 
-            Prerelease   = 'tests0001'
+            Prerelease   = 'pestertests2'
 
             # Tags applied to this module. These help with module discovery in online galleries.
             Tags         = @('DesiredStateConfiguration', 'DSC', 'BuildHelpers', 'DSCResource')
@@ -38,27 +40,19 @@
             IconUri      = 'https://dsccommunity.org/images/DSC_Logo_300p.png'
 
             # ReleaseNotes of this module
-            ReleaseNotes = '## [0.2.0-tests0001] - 2024-10-19
-
-### Added
-
-- Added support for CIM based properties.
+            ReleaseNotes = '## [0.2.0-pestertests2] - 2024-10-20
 
 ### Changed
 
-- Migration of build pipeline to Sampler.
+- Updated build scripts.
+- Aligned dependencies with other related projects.
+- Set gitversion in Azure pipeline to 5.*.
+- Use ''ModuleFast'' in Azure pipeline.
+- Aligned ''build.yml'' with one from other related projects.
+- Added dummy test.
+- Made code HQRM compliant.
+- Added Pester tests for ''Get-DscSplattedResource''.
 
-### Fixed
-
-- Initialize-DscResourceMetaInfo:
-  - Fixed TypeConstraint, ''MSFT_KeyValuePair'' should be ignored.
-  - Fixed non-working caching test.
-  - Added PassThru pattern for easier debugging.
-  - Considering CIM instances names DSC_* in addition to MSFT_*.
-- Get-DscResourceFromModuleInFolder:
-  - Redesigned the function. It did not work with PowerShell 7 and
-    PSDesiredStateConfiguration 2.0.7.
-- Changed the remaining lines in alignment to PR #14.
 '
 
         } # End of PSData hashtable
