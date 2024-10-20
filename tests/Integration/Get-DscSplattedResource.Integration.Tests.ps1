@@ -98,7 +98,13 @@ configuration TestConfig {
         $dscConfiguration = $dscConfiguration.Replace('<DscResourceName>', $dscResourceName)
         $dscConfiguration = $dscConfiguration.Replace('<ConfigPath>', $configPath)
 
-        $data = $configurationData.Datum.Config.$configPath
+        $data = $configurationData.Datum.Config."$configPath"
+        if ($null -eq $data)
+        {
+            Start-Sleep -Milliseconds 200
+            $data = $configurationData.Datum.Config."$configPath"
+        }
+
         Write-Host "Content of data:" -ForegroundColor Magenta
         $dataJson = $data | ConvertTo-Json -Depth 10
         Write-Host -------------------------------------------------------- -ForegroundColor Magenta
