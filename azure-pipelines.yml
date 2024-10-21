@@ -152,18 +152,19 @@ stages:
               artifactName: $(buildArtifactName)
               targetPath: '$(Build.SourcesDirectory)/$(buildFolderName)'
 
-          - task: DownloadPipelineArtifact@2
-            displayName: 'Download Test Artifact Windows (PS 5.1)'
-            inputs:
-              buildType: 'current'
-              artifactName: 'CodeCoverageWinPS51_$(System.JobAttempt)'
-              targetPath: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)'
-          - task: DownloadPipelineArtifact@2
-            displayName: 'Download Test Artifact Windows (PS7)'
-            inputs:
-              buildType: 'current'
-              artifactName: 'CodeCoverageWinPS7_$(System.JobAttempt)'
-              targetPath: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)'
+          #- task: DownloadPipelineArtifact@2
+          #  displayName: 'Download Test Artifact Windows (PS 5.1)'
+          #  inputs:
+          #    buildType: 'current'
+          #    artifactName: 'CodeCoverageWinPS51_$(System.JobAttempt)'
+          #    targetPath: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)'
+          #- task: DownloadPipelineArtifact@2
+          #  displayName: 'Download Test Artifact Windows (PS7)'
+          #  inputs:
+          #    buildType: 'current'
+          #    artifactName: 'CodeCoverageWinPS7_$(System.JobAttempt)'
+          #    targetPath: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)'
+
           - task: PowerShell@2
             name: merge
             displayName: 'Merge Code Coverage files'
