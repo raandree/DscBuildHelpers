@@ -1,0 +1,148 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">DscResource.Test</S>
+      <S N="Version">0.16.3</S>
+      <S N="Type">Module</S>
+      <S N="Description">Testing DSC Resources against HQRM guidelines</S>
+      <S N="Author">DSC Community</S>
+      <S N="CompanyName">dsccommunity</S>
+      <S N="Copyright">(c) dsccommunity. All rights reserved.</S>
+      <DT N="PublishedDate">2024-08-29T19:18:41+02:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://github.com/dsccommunity/DscResource.Test/blob/main/LICENSE</URI>
+      <URI N="ProjectUri">https://github.com/dsccommunity/DscResource.Test</URI>
+      <URI N="IconUri">https://dsccommunity.org/images/DSC_Logo_300p.png</URI>
+      <Obj N="Tags" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>DesiredStateConfiguration</S>
+          <S>DSC</S>
+          <S>DSCResourceKit</S>
+          <S>DSCResource</S>
+          <S>PSModule</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="2">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Obj N="Value" RefId="3">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Clear-DscLcmConfiguration</S>
+                <S>Get-DscResourceTestContainer</S>
+                <S>Get-InvalidOperationRecord</S>
+                <S>Get-InvalidResultRecord</S>
+                <S>Get-ObjectNotFoundRecord</S>
+                <S>Initialize-TestEnvironment</S>
+                <S>Invoke-DscResourceTest</S>
+                <S>New-DscSelfSignedCertificate</S>
+                <S>Restore-TestEnvironment</S>
+                <S>Task.Fail_Build_If_HQRM_Tests_Failed</S>
+                <S>Task.Invoke_HQRM_Tests_Stop_On_Fail</S>
+                <S>Task.Invoke_HQRM_Tests</S>
+                <S>Wait-ForIdleLcm</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Clear-DscLcmConfiguration</S>
+                <S>Get-DscResourceTestContainer</S>
+                <S>Get-InvalidOperationRecord</S>
+                <S>Get-InvalidResultRecord</S>
+                <S>Get-ObjectNotFoundRecord</S>
+                <S>Initialize-TestEnvironment</S>
+                <S>Invoke-DscResourceTest</S>
+                <S>New-DscSelfSignedCertificate</S>
+                <S>Restore-TestEnvironment</S>
+                <S>Task.Fail_Build_If_HQRM_Tests_Failed</S>
+                <S>Task.Invoke_HQRM_Tests_Stop_On_Fail</S>
+                <S>Task.Invoke_HQRM_Tests</S>
+                <S>Wait-ForIdleLcm</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <S N="ReleaseNotes">## [0.16.3] - 2024-08-29_x000A__x000A_### Added_x000A__x000A_- `Get-SystemExceptionRecord`_x000A_  - Added private command fixes ([Issue [#126](https://github.com/dsccommunity/DscResource.Test/issues/126)])._x000A_- Public command `Get-ObjectNotFoundRecord`_x000A_  - Use private function `Get-SystemExceptionRecord`._x000A__x000A_### Changed_x000A__x000A_- `Get-InvalidOperationRecord`_x000A_  - Use private function `Get-SystemExceptionRecord`._x000A_- `Get-InvalidResultRecord`_x000A_  - Removed alias `Get-ObjectNotFoundRecord` and added as it's own public command._x000A_- `PSSAResource.common.v4.Tests`_x000A_  - Fixed rule suppression by using correct variable._x000A__x000A_### Fixed_x000A__x000A_- `azure-pipelines`_x000A_  - Pin gitversion to V5.</S>
+      <Obj N="Dependencies" RefId="6">
+        <TNRef RefId="1" />
+        <LST />
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="7">
+        <TN RefId="3">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">(c) dsccommunity. All rights reserved.</S>
+          <S N="description">Testing DSC Resources against HQRM guidelines</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="releaseNotes">## [0.16.3] - 2024-08-29_x000A__x000A_### Added_x000A__x000A_- `Get-SystemExceptionRecord`_x000A_  - Added private command fixes ([Issue [#126](https://github.com/dsccommunity/DscResource.Test/issues/126)])._x000A_- Public command `Get-ObjectNotFoundRecord`_x000A_  - Use private function `Get-SystemExceptionRecord`._x000A__x000A_### Changed_x000A__x000A_- `Get-InvalidOperationRecord`_x000A_  - Use private function `Get-SystemExceptionRecord`._x000A_- `Get-InvalidResultRecord`_x000A_  - Removed alias `Get-ObjectNotFoundRecord` and added as it's own public command._x000A_- `PSSAResource.common.v4.Tests`_x000A_  - Fixed rule suppression by using correct variable._x000A__x000A_### Fixed_x000A__x000A_- `azure-pipelines`_x000A_  - Pin gitversion to V5.</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">False</S>
+          <S N="versionDownloadCount">21282</S>
+          <S N="downloadCount">1435170</S>
+          <S N="packageSize">69471</S>
+          <S N="published">29.08.2024 19:18:41 +02:00</S>
+          <S N="created">29.08.2024 19:18:41 +02:00</S>
+          <S N="lastUpdated">21.10.2024 09:40:03 +02:00</S>
+          <S N="tags">DesiredStateConfiguration DSC DSCResourceKit DSCResource PSModule PSFunction_Clear-DscLcmConfiguration PSCommand_Clear-DscLcmConfiguration PSFunction_Get-DscResourceTestContainer PSCommand_Get-DscResourceTestContainer PSFunction_Get-InvalidOperationRecord PSCommand_Get-InvalidOperationRecord PSFunction_Get-InvalidResultRecord PSCommand_Get-InvalidResultRecord PSFunction_Get-ObjectNotFoundRecord PSCommand_Get-ObjectNotFoundRecord PSFunction_Initialize-TestEnvironment PSCommand_Initialize-TestEnvironment PSFunction_Invoke-DscResourceTest PSCommand_Invoke-DscResourceTest PSFunction_New-DscSelfSignedCertificate PSCommand_New-DscSelfSignedCertificate PSFunction_Restore-TestEnvironment PSCommand_Restore-TestEnvironment PSFunction_Task.Fail_Build_If_HQRM_Tests_Failed PSCommand_Task.Fail_Build_If_HQRM_Tests_Failed PSFunction_Task.Invoke_HQRM_Tests_Stop_On_Fail PSCommand_Task.Invoke_HQRM_Tests_Stop_On_Fail PSFunction_Task.Invoke_HQRM_Tests PSCommand_Task.Invoke_HQRM_Tests PSFunction_Wait-ForIdleLcm PSCommand_Wait-ForIdleLcm PSIncludes_Function</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2024-10-21T09:40:03Z</S>
+          <S N="NormalizedVersion">0.16.3</S>
+          <S N="Authors">DSC Community</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">DscResource.Test.nuspec|DscResource.Test.psm1|Tests\QA\RelativePathLength.common.v5.Tests.ps1|DscResource.Test.psd1|Tests\QA\MarkdownLinks.common.v5.Tests.ps1|Tests\QA\ModuleScriptFiles.common.v5.Tests.ps1|Config\PSSA_rules_config.json|Tests\QA\ResourceSchema.common.v5.Tests.ps1|tasks\Fail_Build_If_HQRM_Tests_Failed.build.ps1|Tests\QA\ModuleFiles.common.v4.Tests.ps1|tasks\Invoke_HQRM_Tests_Stop_On_Fail.build.ps1|Tests\QA\ExampleFiles.common.v5.Tests.ps1|tasks\Invoke_HQRM_Tests.build.ps1|Tests\QA\Changelog.common.v4.Tests.ps1|en-US\DscResource.AnalyzerRules.psd1|Tests\QA\ModuleManifest.common.v5.Tests.ps1|en-US\about_DscResource.Test.help.txt|Tests\QA\MarkdownLinks.common.v4.Tests.ps1|Tests\SpellCheck.common.v4.Tests.ps1|Tests\QA\ExampleFiles.common.v4.Tests.ps1|Tests\QA\Localization.common.v4.Tests.ps1|Tests\QA\PSSAResource.common.v4.Tests.ps1|Tests\QA\RelativePathLength.common.v4.Tests.ps1|Tests\QA\FileFormatting.common.v4.Tests.ps1|Tests\QA\Changelog.common.v5.Tests.ps1|Tests\QA\ScriptFiles.common.v4.Tests.ps1|Tests\QA\PSSAResource.common.v5.Tests.ps1|Tests\QA\Psm1Parsing.common.v4.Tests.ps1|Tests\QA\PublishExampleFiles.common.v5.Tests.ps1|Tests\QA\ResourceSchema.common.v4.Tests.ps1|Tests\QA\PublishExampleFiles.v4.Tests.ps1|Tests\QA\ModuleManifest.common.v4.Tests.ps1|Tests\QA\Localization.common.v5.Tests.ps1|Tests\QA\FileFormatting.common.v5.Tests.ps1</S>
+          <S N="GUID">036f67a1-21a3-43b6-95a0-73d5549e854e</S>
+          <S N="PowerShellVersion">5.0</S>
+          <S N="CompanyName">DSC Community</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">D:\Git\DscBuildHelpers\output\RequiredModules\DscResource.Test\0.16.3</S>
+    </MS>
+  </Obj>
+</Objs>

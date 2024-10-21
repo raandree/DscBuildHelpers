@@ -1,0 +1,271 @@
+{
+  "files": [
+    {
+      "fileName": "./PSDesiredStateConfiguration.psd1",
+      "SPDXID": "SPDXRef-File--PSDesiredStateConfiguration.psd1-6BDF4B8AC93ABBC3520A4106A4AA9D06D54F75C3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3372aa92f44664eaddcfff72fcbf7e62c271f70fe415b7954ddfa982f9d46897"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6bdf4b8ac93abbc3520a4106a4aa9d06d54f75c3"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./en-US/about_PSDesiredStateConfiguration.md",
+      "SPDXID": "SPDXRef-File--en-US-about-PSDesiredStateConfiguration.md-310B5E5A31BEF4C72746252C55EA00EBE2BB42D0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "d135e65bbbbd31af146aa30c920d06d451b6e522aad4b5124062e18ccb2d6d7e"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "310b5e5a31bef4c72746252c55ea00ebe2bb42d0"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./Configuration/BaseRegistration/MSFT_MetaConfigurationExtensionClasses.schema.mof",
+      "SPDXID": "SPDXRef-File--Configuration-BaseRegistration-MSFT-MetaConfigurationExtensionClasses.schema.mof-4411C8DB73E5DA9EA8D35063691EA7DF5543BA5B",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "d1713185999d9930f8a19f8aef1a7b579921aad10bdee8c0056c602f51b1259a"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4411c8db73e5da9ea8d35063691ea7df5543ba5b"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./Configuration/BaseRegistration/MSFT_DSCMetaConfiguration.mof",
+      "SPDXID": "SPDXRef-File--Configuration-BaseRegistration-MSFT-DSCMetaConfiguration.mof-C8EF22DB88DDEC1778EB182A5EB4D9AE0F86D44E",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "35d885f1673a781cc4e7b3afe9e4b318eb426df50831d2e2a77977b30f03353c"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "c8ef22db88ddec1778eb182a5eb4d9ae0f86d44e"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./Configuration/BaseRegistration/en-US/MSFT_MetaConfigurationExtensionClasses.Schema.mfl",
+      "SPDXID": "SPDXRef-File--Configuration-BaseRegistration-en-US-MSFT-MetaConfigurationExtensionClasses.Schema.mfl-DE43963D09ACD124F01F8C6D59B24C0EF24222C3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "8cb9778309ba58d5b755fcc744269613905362379e7b5c41b56d68daa8321a1d"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "de43963d09acd124f01f8c6d59b24c0ef24222c3"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./Configuration/BaseRegistration/en-US/BaseResource.Schema.mfl",
+      "SPDXID": "SPDXRef-File--Configuration-BaseRegistration-en-US-BaseResource.Schema.mfl-732F5C5CF13DFB17FFC27EA2B11F911B0B764BCC",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "038ed5ebbc599a970ce1282aa0842ebf3da835f70612a245a3e17a8f00f79be5"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "732f5c5cf13dfb17ffc27ea2b11f911b0b764bcc"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./PSDesiredStateConfiguration.psm1",
+      "SPDXID": "SPDXRef-File--PSDesiredStateConfiguration.psm1-22FF7FEFD4A19D27F375D970AC485BDEAA6F041F",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3ae283eefb7fdd12d860eb06c71cfe10229f04715263223209b71ee11159df15"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "22ff7fefd4a19d27f375d970ac485bdeaa6f041f"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./Configuration/BaseRegistration/en-US/MSFT_DSCMetaConfiguration.mfl",
+      "SPDXID": "SPDXRef-File--Configuration-BaseRegistration-en-US-MSFT-DSCMetaConfiguration.mfl-ECAECCFA3E673FA1997888225CE30A550D3E47B3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "acb6f10570f77f5aa01cb2064cc58cbf52388c35e7f4205375b281dffc068f5c"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ecaeccfa3e673fa1997888225ce30a550d3e47b3"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./helpers/DscResourceInfo.psm1",
+      "SPDXID": "SPDXRef-File--helpers-DscResourceInfo.psm1-52B07E953F62EB8992F24CC785D72CF106C841C3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2d317d05a5a48e233cdf6c6837844019db8e512cf11a4f46821928f155ddfb60"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "52b07e953f62eb8992f24cc785d72cf106c841c3"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./Configuration/BaseRegistration/BaseResource.schema.mof",
+      "SPDXID": "SPDXRef-File--Configuration-BaseRegistration-BaseResource.schema.mof-6E1AA756C430691E4C36705636D8D8B217383B45",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "ae72435e4a2aeb264c5e1e21543dbbaf3a3fec5188e1b41b3507bda5dd3bafd0"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6e1aa756c430691e4c36705636d8d8b217383b45"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    }
+  ],
+  "packages": [
+    {
+      "name": "PSDesiredStateConfiguration",
+      "SPDXID": "SPDXRef-Package-E1006DE11BBF91FDB86C041D0A746973F4CB91757ACE0DF815774424891CDFF3",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "versionInfo": "2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:nuget/PSDesiredStateConfiguration@2.0"
+        }
+      ],
+      "supplier": "Organization: Microsoft"
+    },
+    {
+      "name": "PSDesiredStateConfiguration",
+      "SPDXID": "SPDXRef-RootPackage",
+      "downloadLocation": "NOASSERTION",
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "814f385a5464ec63abdf5d50931b13814cae176f"
+      },
+      "filesAnalyzed": true,
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoFromFiles": [
+        "NOASSERTION"
+      ],
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "versionInfo": "2.0.6",
+      "supplier": "Organization: Microsoft",
+      "hasFiles": [
+        "SPDXRef-File--Configuration-BaseRegistration-MSFT-MetaConfigurationExtensionClasses.schema.mof-4411C8DB73E5DA9EA8D35063691EA7DF5543BA5B",
+        "SPDXRef-File--Configuration-BaseRegistration-en-US-BaseResource.Schema.mfl-732F5C5CF13DFB17FFC27EA2B11F911B0B764BCC",
+        "SPDXRef-File--Configuration-BaseRegistration-en-US-MSFT-DSCMetaConfiguration.mfl-ECAECCFA3E673FA1997888225CE30A550D3E47B3",
+        "SPDXRef-File--Configuration-BaseRegistration-en-US-MSFT-MetaConfigurationExtensionClasses.Schema.mfl-DE43963D09ACD124F01F8C6D59B24C0EF24222C3",
+        "SPDXRef-File--en-US-about-PSDesiredStateConfiguration.md-310B5E5A31BEF4C72746252C55EA00EBE2BB42D0",
+        "SPDXRef-File--PSDesiredStateConfiguration.psd1-6BDF4B8AC93ABBC3520A4106A4AA9D06D54F75C3",
+        "SPDXRef-File--Configuration-BaseRegistration-MSFT-DSCMetaConfiguration.mof-C8EF22DB88DDEC1778EB182A5EB4D9AE0F86D44E",
+        "SPDXRef-File--Configuration-BaseRegistration-BaseResource.schema.mof-6E1AA756C430691E4C36705636D8D8B217383B45",
+        "SPDXRef-File--helpers-DscResourceInfo.psm1-52B07E953F62EB8992F24CC785D72CF106C841C3",
+        "SPDXRef-File--PSDesiredStateConfiguration.psm1-22FF7FEFD4A19D27F375D970AC485BDEAA6F041F"
+      ]
+    }
+  ],
+  "externalDocumentRefs": [],
+  "relationships": [
+    {
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-E1006DE11BBF91FDB86C041D0A746973F4CB91757ACE0DF815774424891CDFF3",
+      "spdxElementId": "SPDXRef-RootPackage"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-RootPackage",
+      "spdxElementId": "SPDXRef-DOCUMENT"
+    }
+  ],
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "PSDesiredStateConfiguration 2.0.6",
+  "documentNamespace": "https://sbom.microsoft/1:2QSF7qZlbE-F7QrUJlEo7g:z5OXZRvqEUiTC69zyh6t-Q/1043:368401/PSDesiredStateConfiguration:2.0.6:hdHiTMTxTke-dPhJ5Z3zng",
+  "creationInfo": {
+    "created": "2023-05-13T18:52:24Z",
+    "creators": [
+      "Organization: Microsoft",
+      "Tool: Microsoft.SBOMTool-1.1.1"
+    ]
+  },
+  "documentDescribes": [
+    "SPDXRef-RootPackage"
+  ]
+}

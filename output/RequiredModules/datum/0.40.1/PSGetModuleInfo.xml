@@ -1,0 +1,170 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">datum</S>
+      <S N="Version">0.40.1</S>
+      <S N="Type">Module</S>
+      <S N="Description">Module to manage Hierarchical Configuration Data.</S>
+      <S N="Author">Gael Colas</S>
+      <S N="CompanyName">gaelcolas</S>
+      <S N="Copyright">(c) 2020 Gael Colas. All rights reserved.</S>
+      <DT N="PublishedDate">2023-04-03T19:16:56+02:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://github.com/gaelcolas/Datum/blob/master/LICENSE</URI>
+      <URI N="ProjectUri">https://github.com/gaelcolas/Datum/</URI>
+      <Nil N="IconUri" />
+      <Obj N="Tags" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>Datum</S>
+          <S>Hiera</S>
+          <S>DSC</S>
+          <S>DesiredStateConfiguration</S>
+          <S>hierarchical</S>
+          <S>ConfigurationData</S>
+          <S>ConfigData</S>
+          <S>PSModule</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="2">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Obj N="Value" RefId="3">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Clear-DatumRsopCache</S>
+                <S>ConvertTo-Datum</S>
+                <S>Get-DatumRsop</S>
+                <S>Get-DatumRsopCache</S>
+                <S>Get-DatumSourceFile</S>
+                <S>Get-FileProviderData</S>
+                <S>Get-MergeStrategyFromPath</S>
+                <S>Invoke-TestHandlerAction</S>
+                <S>Merge-Datum</S>
+                <S>New-DatumFileProvider</S>
+                <S>New-DatumStructure</S>
+                <S>Resolve-Datum</S>
+                <S>Resolve-DatumPath</S>
+                <S>Test-TestHandlerFilter</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Clear-DatumRsopCache</S>
+                <S>ConvertTo-Datum</S>
+                <S>Get-DatumRsop</S>
+                <S>Get-DatumRsopCache</S>
+                <S>Get-DatumSourceFile</S>
+                <S>Get-FileProviderData</S>
+                <S>Get-MergeStrategyFromPath</S>
+                <S>Invoke-TestHandlerAction</S>
+                <S>Merge-Datum</S>
+                <S>New-DatumFileProvider</S>
+                <S>New-DatumStructure</S>
+                <S>Resolve-Datum</S>
+                <S>Resolve-DatumPath</S>
+                <S>Test-TestHandlerFilter</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <S N="ReleaseNotes">## [0.40.1] - 2023-04-03_x000D__x000A__x000D__x000A_### Added_x000D__x000A__x000D__x000A_- Added support for specifying the encoding (#87)._x000D__x000A_- Added error handling to 'Get-FileProviderData.ps1'._x000D__x000A_- Added functions for get and clear the Datum RSOP cache._x000D__x000A__x000D__x000A_### Fixed_x000D__x000A__x000D__x000A_- Fixed how issue not allowing Datum handlers to be used on arrays (#89)._x000D__x000A_- Fixed issue in Merge-Hashtable where it did not merge hashtables correctly when these_x000D__x000A_  are included in an array._x000D__x000A_- Formatting in all files with VSCode formatting according to the 'settings.json' file taken from Sampler_x000D__x000A_- Added yaml format config settings 'singleQuote' and 'bracketSpacing' and reformatted all yaml files according to the new settings._x000D__x000A_- Cleanup_x000D__x000A_  - Get-DatumType.ps1_x000D__x000A_  - Merge-DatumArray.ps1_x000D__x000A_  - Merge-Hashtable.ps1_x000D__x000A_  - Compare-Hashtable.ps1_x000D__x000A_  - Node.ps1_x000D__x000A_  - FileProvider.ps1_x000D__x000A_  - ConvertTo-Datum.ps1_x000D__x000A_  - Get-MergeStrategyFromPath.ps1_x000D__x000A_  - Get-MergeStrategyFromString.ps1_x000D__x000A_  - Get-DatumRsop.ps1_x000D__x000A_  - Merge-Datum.ps1_x000D__x000A_  - datum.psd1_x000D__x000A_  - Get-FileProviderData.ps1_x000D__x000A_  - Invoke-TestHandlerAction.ps1_x000D__x000A_  - New-DatumStructure.ps1_x000D__x000A_  - Resolve-Datum.ps1_x000D__x000A_  - Resolve-DatumPath.ps1_x000D__x000A_  - Test-InvokeCommandFilter_x000D__x000A_  - Resolve-NodeProperty.ps1_x000D__x000A_  - New-DatumFileProvider.ps1_x000D__x000A_- Added 'GitHubConfig' to build.yml and updating main branch to main.</S>
+      <Obj N="Dependencies" RefId="6">
+        <TNRef RefId="1" />
+        <LST>
+          <Obj RefId="7">
+            <TN RefId="3">
+              <T>System.Collections.Specialized.OrderedDictionary</T>
+              <T>System.Object</T>
+            </TN>
+            <DCT>
+              <En>
+                <S N="Key">Name</S>
+                <S N="Value">powershell-yaml</S>
+              </En>
+              <En>
+                <S N="Key">CanonicalId</S>
+                <S N="Value">nuget:powershell-yaml</S>
+              </En>
+            </DCT>
+          </Obj>
+        </LST>
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="8">
+        <TN RefId="4">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">(c) 2020 Gael Colas. All rights reserved.</S>
+          <S N="description">Module to manage Hierarchical Configuration Data.</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="releaseNotes">## [0.40.1] - 2023-04-03_x000D__x000A__x000D__x000A_### Added_x000D__x000A__x000D__x000A_- Added support for specifying the encoding (#87)._x000D__x000A_- Added error handling to 'Get-FileProviderData.ps1'._x000D__x000A_- Added functions for get and clear the Datum RSOP cache._x000D__x000A__x000D__x000A_### Fixed_x000D__x000A__x000D__x000A_- Fixed how issue not allowing Datum handlers to be used on arrays (#89)._x000D__x000A_- Fixed issue in Merge-Hashtable where it did not merge hashtables correctly when these_x000D__x000A_  are included in an array._x000D__x000A_- Formatting in all files with VSCode formatting according to the 'settings.json' file taken from Sampler_x000D__x000A_- Added yaml format config settings 'singleQuote' and 'bracketSpacing' and reformatted all yaml files according to the new settings._x000D__x000A_- Cleanup_x000D__x000A_  - Get-DatumType.ps1_x000D__x000A_  - Merge-DatumArray.ps1_x000D__x000A_  - Merge-Hashtable.ps1_x000D__x000A_  - Compare-Hashtable.ps1_x000D__x000A_  - Node.ps1_x000D__x000A_  - FileProvider.ps1_x000D__x000A_  - ConvertTo-Datum.ps1_x000D__x000A_  - Get-MergeStrategyFromPath.ps1_x000D__x000A_  - Get-MergeStrategyFromString.ps1_x000D__x000A_  - Get-DatumRsop.ps1_x000D__x000A_  - Merge-Datum.ps1_x000D__x000A_  - datum.psd1_x000D__x000A_  - Get-FileProviderData.ps1_x000D__x000A_  - Invoke-TestHandlerAction.ps1_x000D__x000A_  - New-DatumStructure.ps1_x000D__x000A_  - Resolve-Datum.ps1_x000D__x000A_  - Resolve-DatumPath.ps1_x000D__x000A_  - Test-InvokeCommandFilter_x000D__x000A_  - Resolve-NodeProperty.ps1_x000D__x000A_  - New-DatumFileProvider.ps1_x000D__x000A_- Added 'GitHubConfig' to build.yml and updating main branch to main.</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">8330</S>
+          <S N="downloadCount">43588</S>
+          <S N="packageSize">19946</S>
+          <S N="published">03.04.2023 19:16:56 +02:00</S>
+          <S N="created">03.04.2023 19:16:56 +02:00</S>
+          <S N="lastUpdated">21.10.2024 09:40:03 +02:00</S>
+          <S N="tags">Datum Hiera DSC DesiredStateConfiguration hierarchical ConfigurationData ConfigData PSModule PSFunction_Clear-DatumRsopCache PSCommand_Clear-DatumRsopCache PSFunction_ConvertTo-Datum PSCommand_ConvertTo-Datum PSFunction_Get-DatumRsop PSCommand_Get-DatumRsop PSFunction_Get-DatumRsopCache PSCommand_Get-DatumRsopCache PSFunction_Get-DatumSourceFile PSCommand_Get-DatumSourceFile PSFunction_Get-FileProviderData PSCommand_Get-FileProviderData PSFunction_Get-MergeStrategyFromPath PSCommand_Get-MergeStrategyFromPath PSFunction_Invoke-TestHandlerAction PSCommand_Invoke-TestHandlerAction PSFunction_Merge-Datum PSCommand_Merge-Datum PSFunction_New-DatumFileProvider PSCommand_New-DatumFileProvider PSFunction_New-DatumStructure PSCommand_New-DatumStructure PSFunction_Resolve-Datum PSCommand_Resolve-Datum PSFunction_Resolve-DatumPath PSCommand_Resolve-DatumPath PSFunction_Test-TestHandlerFilter PSCommand_Test-TestHandlerFilter PSIncludes_Function</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2024-10-21T09:40:03Z</S>
+          <S N="NormalizedVersion">0.40.1</S>
+          <S N="Authors">Gael Colas</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">datum.nuspec|datum.psd1|en-US\datum.strings.psd1|ScriptsToProcess\Resolve-NodeProperty.ps1|datum.psm1</S>
+          <S N="GUID">e176662d-46b8-4900-8de5-e84f9b4366ee</S>
+          <S N="PowerShellVersion">5.1</S>
+          <S N="CompanyName">SynEdgy Limited</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">D:\Git\DscBuildHelpers\output\RequiredModules\datum\0.40.1</S>
+    </MS>
+  </Obj>
+</Objs>

@@ -1,0 +1,139 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">DscResource.DocGenerator</S>
+      <S N="Version">0.12.5</S>
+      <S N="Type">Module</S>
+      <S N="Description">Functionality to help generate documentation for modules.</S>
+      <S N="Author">DSC Community</S>
+      <S N="CompanyName">dsccommunity</S>
+      <S N="Copyright">(c) DSC Community contributors.</S>
+      <DT N="PublishedDate">2024-08-14T16:43:43+02:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://github.com/dsccommunity/DscResource.DocGenerator/blob/main/LICENSE</URI>
+      <URI N="ProjectUri">https://github.com/dsccommunity/DscResource.DocGenerator</URI>
+      <Nil N="IconUri" />
+      <Obj N="Tags" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>DSC</S>
+          <S>Modules</S>
+          <S>documentation</S>
+          <S>PSModule</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="2">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Obj N="Value" RefId="3">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Add-NewLine</S>
+                <S>Edit-CommandDocumentation</S>
+                <S>Invoke-Git</S>
+                <S>New-DscResourcePowerShellHelp</S>
+                <S>New-DscResourceWikiPage</S>
+                <S>New-GitHubWikiSidebar</S>
+                <S>Publish-WikiContent</S>
+                <S>Remove-MarkdownMetadataBlock</S>
+                <S>Set-WikiModuleVersion</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Add-NewLine</S>
+                <S>Edit-CommandDocumentation</S>
+                <S>Invoke-Git</S>
+                <S>New-DscResourcePowerShellHelp</S>
+                <S>New-DscResourceWikiPage</S>
+                <S>New-GitHubWikiSidebar</S>
+                <S>Publish-WikiContent</S>
+                <S>Remove-MarkdownMetadataBlock</S>
+                <S>Set-WikiModuleVersion</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <S N="ReleaseNotes">## [0.12.5] - 2024-08-14_x000D__x000A__x000D__x000A_- `Get-ClassResourceProperty`_x000D__x000A_  - Check for a prefixed and non-prefixed class names [issue #132](https://github.com/dsccommunity/DscResource.DocGenerator/issues/132)._x000D__x000A_- `azure-pipelines`_x000D__x000A_  - Pin gitversion to V5._x000D__x000A_- Update README with the tasks that were not documented._x000D__x000A_- `Generate_Wiki_Content`_x000D__x000A_  - Change the order of the tasks to avoid getting and exception when_x000D__x000A_    `source/WikiSource` contain additional markdown files that are copied_x000D__x000A_    to `output/WikiContent`.</S>
+      <Obj N="Dependencies" RefId="6">
+        <TNRef RefId="1" />
+        <LST />
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="7">
+        <TN RefId="3">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">(c) DSC Community contributors.</S>
+          <S N="description">Functionality to help generate documentation for modules.</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="releaseNotes">## [0.12.5] - 2024-08-14_x000D__x000A__x000D__x000A_- `Get-ClassResourceProperty`_x000D__x000A_  - Check for a prefixed and non-prefixed class names [issue #132](https://github.com/dsccommunity/DscResource.DocGenerator/issues/132)._x000D__x000A_- `azure-pipelines`_x000D__x000A_  - Pin gitversion to V5._x000D__x000A_- Update README with the tasks that were not documented._x000D__x000A_- `Generate_Wiki_Content`_x000D__x000A_  - Change the order of the tasks to avoid getting and exception when_x000D__x000A_    `source/WikiSource` contain additional markdown files that are copied_x000D__x000A_    to `output/WikiContent`.</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">False</S>
+          <S N="versionDownloadCount">1377</S>
+          <S N="downloadCount">27607</S>
+          <S N="packageSize">114364</S>
+          <S N="published">14.08.2024 16:43:43 +02:00</S>
+          <S N="created">14.08.2024 16:43:43 +02:00</S>
+          <S N="lastUpdated">21.10.2024 09:40:03 +02:00</S>
+          <S N="tags">DSC Modules documentation PSModule PSFunction_Add-NewLine PSCommand_Add-NewLine PSFunction_Edit-CommandDocumentation PSCommand_Edit-CommandDocumentation PSFunction_Invoke-Git PSCommand_Invoke-Git PSFunction_New-DscResourcePowerShellHelp PSCommand_New-DscResourcePowerShellHelp PSFunction_New-DscResourceWikiPage PSCommand_New-DscResourceWikiPage PSFunction_New-GitHubWikiSidebar PSCommand_New-GitHubWikiSidebar PSFunction_Publish-WikiContent PSCommand_Publish-WikiContent PSFunction_Remove-MarkdownMetadataBlock PSCommand_Remove-MarkdownMetadataBlock PSFunction_Set-WikiModuleVersion PSCommand_Set-WikiModuleVersion PSIncludes_Function</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2024-10-21T09:40:03Z</S>
+          <S N="NormalizedVersion">0.12.5</S>
+          <S N="Authors">DSC Community</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">DscResource.DocGenerator.nuspec|DscResource.DocGenerator.psm1|tasks\Create_Wiki_Output_Folder.build.ps1|DscResource.DocGenerator.psd1|tasks\Generate_Conceptual_Help.build.ps1|tasks\Generate_Wiki_Content.build.ps1|tasks\Package_Wiki_Content.build.ps1|en-US\DscResource.DocGenerator-help.xml|tasks\Clean_Markdown_Metadata.build.ps1|en-US\about_DscResource.DocGenerator.help.txt|tasks\Publish_GitHub_Wiki_Content.build.ps1|en-US\DscResource.DocGenerator.strings.psd1|tasks\Generate_Wiki_Sidebar.build.ps1|Modules\DscResource.Common\0.17.2\DscResource.Common.psm1|tasks\Clean_Markdown_Of_Public_Commands.build.ps1|Modules\DscResource.Common\0.17.2\DscResource.Common.psd1|tasks\Copy_Source_Wiki_Folder.build.ps1|Modules\DscResource.Common\0.17.2\en-US\DscResource.Common.strings.psd1|tasks\Generate_Markdown_For_Public_Commands.build.ps1|Modules\DscResource.Common\0.17.2\en-US\about_DscResource.Common.help.txt|tasks\Generate_External_Help_File_For_Public_Commands.build.ps1|Modules\DscResource.Common\0.17.2\en-US\DscResource.Common-help.xml|tasks\Generate_Markdown_For_DSC_Resources.build.ps1</S>
+          <S N="GUID">fa8b017d-8e6e-414d-9ab7-c8ab9cb9e9a4</S>
+          <S N="PowerShellVersion">5.0</S>
+          <S N="CompanyName">DSC Community</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">D:\Git\DscBuildHelpers\output\RequiredModules\DscResource.DocGenerator\0.12.5</S>
+    </MS>
+  </Obj>
+</Objs>

@@ -1,0 +1,136 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">PSDesiredStateConfiguration</S>
+      <S N="Version">2.0.7</S>
+      <S N="Type">Module</S>
+      <S N="Description">PowerShell Desired State Configuration</S>
+      <S N="Author">Microsoft Corporation</S>
+      <Obj N="CompanyName" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>anmenaga</S>
+          <S>alerickson</S>
+        </LST>
+      </Obj>
+      <S N="Copyright">(c) Microsoft Corporation. All rights reserved.</S>
+      <DT N="PublishedDate">2023-05-13T19:06:03+02:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <Nil N="LicenseUri" />
+      <URI N="ProjectUri">https://github.com/PowerShell/PSDesiredStateConfiguration</URI>
+      <Nil N="IconUri" />
+      <Obj N="Tags" RefId="2">
+        <TNRef RefId="1" />
+        <LST>
+          <S>PSDesiredStateConfiguration</S>
+          <S>Linux</S>
+          <S>Mac</S>
+          <S>Windows</S>
+          <S>PSModule</S>
+          <S>PSEdition_Core</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="3">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Configuration</S>
+                <S>New-DscChecksum</S>
+                <S>Get-DscResource</S>
+                <S>Invoke-DscResource</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="6">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Configuration</S>
+                <S>New-DscChecksum</S>
+                <S>Get-DscResource</S>
+                <S>Invoke-DscResource</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <Nil N="ReleaseNotes" />
+      <Obj N="Dependencies" RefId="7">
+        <TNRef RefId="1" />
+        <LST />
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="8">
+        <TN RefId="3">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">(c) Microsoft Corporation. All rights reserved.</S>
+          <S N="description">PowerShell Desired State Configuration</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">234657</S>
+          <S N="downloadCount">389708</S>
+          <S N="packageSize">76065</S>
+          <S N="published">13.05.2023 19:06:03 +02:00</S>
+          <S N="created">13.05.2023 19:06:03 +02:00</S>
+          <S N="lastUpdated">21.10.2024 09:40:03 +02:00</S>
+          <S N="tags">PSDesiredStateConfiguration Linux Mac Windows PSModule PSEdition_Core PSFunction_Configuration PSCommand_Configuration PSFunction_New-DscChecksum PSCommand_New-DscChecksum PSFunction_Get-DscResource PSCommand_Get-DscResource PSFunction_Invoke-DscResource PSCommand_Invoke-DscResource PSIncludes_Function</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2024-10-21T09:40:03Z</S>
+          <S N="NormalizedVersion">2.0.7</S>
+          <S N="Authors">Microsoft Corporation</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">PSDesiredStateConfiguration.nuspec|Configuration\BaseRegistration\en-US\MSFT_DSCMetaConfiguration.mfl|helpers\DscResourceInfo.psm1|Configuration\BaseRegistration\MSFT_DSCMetaConfiguration.mof|Configuration\BaseRegistration\en-US\MSFT_MetaConfigurationExtensionClasses.Schema.mfl|_manifest\spdx_2.2\manifest.spdx.json|PSDesiredStateConfiguration.psd1|Configuration\BaseRegistration\MSFT_MetaConfigurationExtensionClasses.schema.mof|en-US\about_PSDesiredStateConfiguration.md|_manifest\spdx_2.2\manifest.spdx.json.sha256|PSDesiredStateConfiguration.psm1|Configuration\BaseRegistration\en-US\BaseResource.Schema.mfl|Configuration\BaseRegistration\BaseResource.schema.mof</S>
+          <S N="GUID">779e0998-8c72-4567-89b5-49313fc15351</S>
+          <S N="PowerShellVersion">6.1</S>
+          <S N="CompanyName">Microsoft Corporation</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">D:\Git\DscBuildHelpers\output\RequiredModules\PSDesiredStateConfiguration\2.0.7</S>
+    </MS>
+  </Obj>
+</Objs>

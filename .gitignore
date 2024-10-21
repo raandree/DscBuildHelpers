@@ -2,7 +2,7 @@
 
 output/*
 !output/RequiredModules
-output/RequiredModules/*
+!output/module
 
 !output/RequiredModules/ClassBased
 !output/RequiredModules/MofBased
