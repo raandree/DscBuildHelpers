@@ -38,7 +38,7 @@ BeforeDiscovery {
     }
 
     [hashtable[]]$testCases = @()
-    $configFiles = $datum.Config | Get-Member -MemberType ScriptProperty | Select-Object -ExpandProperty Name
+    $configFiles = $datum.Config | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name
     foreach ($dscResource in $dscResources)
     {
         foreach ($configFile in $configFiles | Where-Object { $_ -like "$($dscResource.Name)*" })
