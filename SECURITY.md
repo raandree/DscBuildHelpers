@@ -1,18 +1,17 @@
 ## Security
 
-We take the security of our modules seriously, which includes all source code repositories managed through our GitHub organization.
+The DSC Community takes the security of our modules seriously, which includes all source code repositories managed through our GitHub organization.
 
-If you believe you have found a security vulnerability in any of our repository, please report it to us as described below.
+If you believe you have found a security vulnerability in any DSC Community owned repository, please report it to us as described below.
 
 ## Reporting Security Issues
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 
-Instead, please report them to one or several maintainers of the repository.
-The easiest way to do so is to send us a direct message via twitter or find us 
-on some other social platform.
+Instead, please report them to one or several members of the DSC Community organization.
+The easiest way to do so is to send us a direct message via twitter or slack.
 
-You should receive a response within 48 hours. If for some reason you do not, please follow up by other means or to other contributors.
+You should receive a response within 48 hours. If for some reason you do not, please follow up to other member of the community.
 
 Please include the requested information listed below (as much as you can provide) to help us better understand the nature and scope of the possible issue:
 
