@@ -35,7 +35,7 @@ Describe 'Get-DscResourceProperty Tests' -Tags FunctionalQuality {
 
         if ($DscResourceType -eq 'Composite')
         {
-            Set-ItResult -Skipped -Because "Composite DSC resources are not supported"
+            Set-ItResult -Skipped -Because 'Composite DSC resources are not supported'
         }
 
         InModuleScope DscBuildHelpers -Parameters $_ {
