@@ -59,6 +59,7 @@ function Get-StandardCimType
         MSFT_Credential       = 'System.Management.Automation.PSCredential'
         'MSFT_KeyValuePair[]' = 'System.Collections.Hashtable'
         MSFT_KeyValuePair     = 'System.Collections.Hashtable'
+        Hashtable             = 'System.Collections.Hashtable'
     }
 
     $types.GetEnumerator() | ForEach-Object {

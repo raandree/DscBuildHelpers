@@ -13,7 +13,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated build scripts to Sampler 0.119.0-preview0005 for fixing issues with debugging.
 - Improved 'SupportsShouldProcess' handling in 'Clear-CachedDscResource.ps1'.
 - Added 'SupportsShouldProcess' to 'Remove-DscResourceWmiClass'.
-- 
 
 ### Added
 
@@ -31,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     to 'RequiredModules.psd1' for 'Get-DscResourceProperty' integration tests.
 - Added integration test for 'Initialize-DscResourceMetaInfo' and added 'SharePointDsc'.
 - Added tests covering the test DSC resource in 'tests\Integration\Assets\DscResources'.
+- Added support for hashtable parameters in class-based resources.
 
 ### Fixed
 
