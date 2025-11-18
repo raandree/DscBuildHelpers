@@ -27,9 +27,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - 'Get-DscResourceProperty'.
   - 'Initialize-DscResourceMetaInfo'.
 - Add integration tests for Get-DscResourceProperty function.
-  - Add latest versions of' NetworkingDsc', 'ComputermanagementDsc', and 'Microsoft365DSC'
+  - Add latest versions of' NetworkingDsc', 'ComputerManagementDsc', and 'Microsoft365DSC'
     to 'RequiredModules.psd1' for 'Get-DscResourceProperty' integration tests.
 - Added integration test for 'Initialize-DscResourceMetaInfo' and added 'SharePointDsc'.
+- Added tests covering the test DSC resource in 'tests\Integration\Assets\DscResources'.
 
 ### Fixed
 
