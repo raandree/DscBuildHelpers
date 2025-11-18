@@ -6,3 +6,6 @@ Strings1:
   - s11
   - s12
 Bool1: true
+Hashtable1:
+  hkey1: hValue1
+  hkey2: hValue2

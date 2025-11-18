@@ -24,6 +24,9 @@ class ClassBasedResource1
     [string[]]$Strings1
 
     [DscProperty(Mandatory = $true)]
+    [hashtable]$Hashtable1
+
+    [DscProperty(Mandatory = $true)]
     [bool]$Bool1
 
     [DscProperty()]
