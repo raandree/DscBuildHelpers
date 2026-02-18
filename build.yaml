@@ -22,7 +22,7 @@ Pester:
       StackTraceVerbosity: Full
       CIFormat: Auto
     CodeCoverage:
-      CoveragePercentTarget: 10
+      CoveragePercentTarget: 50
       OutputEncoding: ascii
       UseBreakpoints: false
       CodeCoverageFilePattern: Codecov*.xml
