@@ -21,7 +21,7 @@
     'DscResource.AnalyzerRules'  = 'latest'
     'DscResource.DocGenerator'   = 'latest'
     datum                        = 'latest'
-    PSDesiredStateConfiguration  = '2.0.7'
+    PSDesiredStateConfiguration  = 'latest'
 
     xDscResourceDesigner         = 'latest'
     xPSDesiredStateConfiguration = 'latest'
