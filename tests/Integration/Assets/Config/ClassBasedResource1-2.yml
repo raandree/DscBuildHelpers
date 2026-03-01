@@ -6,5 +6,5 @@ Strings1:
   - s22
 Bool1: true
 Hashtable1:
-  hkey1: 1
-  hkey2: 2
+  hkey1: '1'
+  hkey2: '2'

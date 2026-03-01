@@ -31,6 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added integration test for 'Initialize-DscResourceMetaInfo' and added 'SharePointDsc'.
 - Added tests covering the test DSC resource in 'tests\Integration\Assets\DscResources'.
 - Added support for hashtable parameters in class-based resources.
+- Added test case 'ClassBasedResource1-3' with integer hashtable values and an
+  integration test that verifies PS5 rejects and PS7 accepts 'System.Int32' values
+  in class-based resource hashtable properties.
 
 ### Fixed
 
@@ -38,6 +41,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   An error was thrown that the property 'IsArray' could not be found.
 - Fixed a bug in 'Initialize-DscResourceMetaInfo' when importing for example
   'SharePointDsc', which returns 2 objects.
+- Fixed 'ClassBasedResource1' test data so hashtable values are strings instead of
+  integers, preventing PS5's DSC engine from throwing 'System.ArgumentException'
+  for 'System.Int32' values in class-based resource hashtable properties.
+- Fixed PS5 test discovery failure caused by empty entries in 'PSModulePath'. PS5's
+  default 'PSModulePath' ends with a trailing semicolon which creates an empty path
+  entry that crashes 'Get-DscResource'.
+- Fixed '$requiredModulesPath' not being visible inside Pester's scope on PS5. In
+  PS5, InvokeBuild script-scope variables are not resolved across module session
+  state boundaries into Pester's scope.
 
 ## [0.2.3] - 2024-11-09
 

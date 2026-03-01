@@ -2,8 +2,19 @@ BeforeAll {
 
     $here = $PSScriptRoot
 
+    # Remove empty entries from PSModulePath to prevent PS5 module loading issues
+    # caused by the trailing semicolon in Windows PowerShell's default PSModulePath.
+    $env:PSModulePath = ($env:PSModulePath -split [System.IO.Path]::PathSeparator).Where({ $_ -ne '' }) -join [System.IO.Path]::PathSeparator
+
     Import-Module -Name datum
     Import-Module -Name DscBuildHelpers -Force
+
+    # Derive $requiredModulesPath if not already set by the build pipeline (InvokeBuild).
+    # In PS5, InvokeBuild script-scope variables are not visible inside Pester's scope.
+    if (-not $requiredModulesPath)
+    {
+        $requiredModulesPath = Join-Path -Path $PSScriptRoot -ChildPath '../../output/RequiredModules' | Convert-Path
+    }
 
     $tempPath = Join-Path -Path ([IO.Path]::GetTempPath()) -ChildPath DscTest
     mkdir -Path $tempPath -Force

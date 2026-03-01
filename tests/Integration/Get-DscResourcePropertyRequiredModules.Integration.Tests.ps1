@@ -2,6 +2,13 @@ BeforeDiscovery {
 
     Import-Module -Name DscBuildHelpers -Force
 
+    # Derive $requiredModulesPath if not already set by the build pipeline (InvokeBuild).
+    # In PS5, InvokeBuild script-scope variables are not visible inside Pester's scope.
+    if (-not $requiredModulesPath)
+    {
+        $requiredModulesPath = Join-Path -Path $PSScriptRoot -ChildPath '../../output/RequiredModules' | Convert-Path
+    }
+
     $allModules = Get-ModuleFromFolder -ModuleFolder $requiredModulesPath
     $allDscResources = Get-DscResourceFromModuleInFolder -ModuleFolder $requiredModulesPath -Modules $allModules
     $modulesWithDscResources = $allDscResources | Select-Object -ExpandProperty ModuleName -Unique
