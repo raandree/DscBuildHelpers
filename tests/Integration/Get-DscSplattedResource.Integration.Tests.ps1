@@ -50,8 +50,8 @@ BeforeDiscovery {
     $finalTestCases = @()
     $finalTestCases += @{
         AllDscResources      = $DscResources.Name
-        FilteredDscResources = $DscResources | Where-Object Name -NotIn $skippedDscResources
-        TestCaseCount        = @($testCases | Where-Object Skip -EQ $false).Count
+        FilteredDscResources = $DscResources | Where-Object Name -notin $skippedDscResources
+        TestCaseCount        = @($testCases | Where-Object Skip -eq $false).Count
     }
 }
 

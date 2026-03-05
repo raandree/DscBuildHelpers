@@ -12,7 +12,7 @@ BeforeDiscovery {
     $allModules = Get-ModuleFromFolder -ModuleFolder $requiredModulesPath
     $allDscResources = Get-DscResourceFromModuleInFolder -ModuleFolder $requiredModulesPath -Modules $allModules
     $modulesWithDscResources = $allDscResources | Select-Object -ExpandProperty ModuleName -Unique
-    $modulesWithDscResources = $allModules | Where-Object Name -In $modulesWithDscResources
+    $modulesWithDscResources = $allModules | Where-Object Name -in $modulesWithDscResources
 
     [hashtable[]]$testCases = @()
     foreach ($dscResource in $allDscResources)
