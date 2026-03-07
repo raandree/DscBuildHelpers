@@ -103,43 +103,58 @@ function Get-DscResourceProperty
     {
         $resourceProperty = $resourceProperties.$key
 
-        $dscClassParameterInfo = & $ModuleInfo {
+        if (-not $foundCimSchema)
+        {
+            $dscClassParameterInfo = & $ModuleInfo {
 
-            param (
-                [Parameter(Mandatory = $true)]
-                [string]$TypeName
-            )
+                param (
+                    [Parameter(Mandatory = $true)]
+                    [string]$TypeName
+                )
 
-            $result = @{
-                ElementType = $null
-                Type        = $null
-                IsArray     = $false
-            }
+                $result = @{
+                    ElementType = $null
+                    Type        = $null
+                    IsArray     = $false
+                }
 
-            $result.Type = $TypeName -as [type]
+                $result.Type = $TypeName -as [type]
 
-            if ($null -eq $result.Type)
-            {
-                Write-Verbose "The type '$TypeName' could not be resolved."
-            }
+                if ($null -eq $result.Type)
+                {
+                    Write-Verbose "The type '$TypeName' could not be resolved."
+                }
 
-            if ($result.Type -and $result.Type.IsArray)
-            {
-                $result.ElementType = $result.Type.GetElementType().FullName
-                $result.IsArray = $true
-            }
+                if ($result.Type -and $result.Type.IsArray)
+                {
+                    $result.ElementType = $result.Type.GetElementType().FullName
+                    $result.IsArray = $true
+                }
 
-            return $result
+                return $result
 
-        } $resourceProperty.TypeConstraint
+            } $resourceProperty.TypeConstraint
+        }
+        else
+        {
+            Write-Verbose 'Skipping DSC Class Parameter Info retrieval for CIM Schema based resource.'
+        }
 
         $isArrayType = if ($null -ne $dscClassParameterInfo.Type)
         {
             $dscClassParameterInfo.IsArray
         }
+        elseif ($resourceProperty.TypeConstraint -match '.+\[\]')
+        {
+            $true
+        }
+        elseif (Get-StandardCimType | Where-Object { $_.CimType -like '*Array' -and $_.CimType -eq $resourceProperty.TypeConstraint })
+        {
+            $true
+        }
         else
         {
-            $resourceProperty.TypeConstraint -match '.+\[\]'
+            $false
         }
 
         [PSCustomObject]@{

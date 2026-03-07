@@ -55,7 +55,23 @@ function Write-CimProperty
     )
 
     $null = $StringBuilder.Append("$($CimProperty.Name) = ")
-    if ($CimProperty.IsArray -or $CimProperty.PropertyType.IsArray -or $CimProperty.CimType -eq 'InstanceArray')
+    if ($CimProperty.TypeConstraint -eq 'MSFT_KeyValuePair[]')
+    {
+        $null = $StringBuilder.Append("@{`n")
+
+        $pathValue = Get-PropertiesData -Path $Path
+
+        $i = 0
+        foreach ($key in $pathValue.Keys)
+        {
+            $p = $Path + $i
+            $null = $StringBuilder.Append("$($key) = `$Parameters['$Path']['$key']`n")
+            $i++
+        }
+
+        $null = $StringBuilder.Append("}`n")
+    }
+    elseif ($CimProperty.IsArray -or $CimProperty.PropertyType.IsArray -or $CimProperty.CimType -eq 'InstanceArray')
     {
         $null = $StringBuilder.Append("@(`n")
 
