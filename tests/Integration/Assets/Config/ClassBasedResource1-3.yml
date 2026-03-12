@@ -1,0 +1,10 @@
+Key1: 1k31
+Key2: 1k32
+String1: 3string1
+Strings1:
+  - s31
+  - s32
+Bool1: true
+Hashtable1:
+  hkey1: 1
+  hkey2: 2

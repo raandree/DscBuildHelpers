@@ -21,13 +21,12 @@
     'DscResource.AnalyzerRules'  = 'latest'
     'DscResource.DocGenerator'   = 'latest'
     datum                        = 'latest'
-    PSDesiredStateConfiguration  = '2.0.7'
+    PSDesiredStateConfiguration  = 'latest'
 
     xDscResourceDesigner         = 'latest'
     xPSDesiredStateConfiguration = 'latest'
     NetworkingDsc                = 'latest'
     ComputermanagementDsc        = 'latest'
-    Microsoft365DSC              = 'latest'
     SharePointDsc                = 'latest'
 
 }

@@ -85,7 +85,7 @@ function Initialize-DscResourceMetaInfo
     $allModules = Get-ModuleFromFolder -ModuleFolder $ModulePath
     $allDscResources = Get-DscResourceFromModuleInFolder -ModuleFolder $ModulePath -Modules $allModules
     $modulesWithDscResources = $allDscResources | Select-Object -ExpandProperty ModuleName -Unique
-    $modulesWithDscResources = $allModules | Where-Object Name -In $modulesWithDscResources
+    $modulesWithDscResources = $allModules | Where-Object Name -in $modulesWithDscResources
 
     $script:standardCimTypes = Get-StandardCimType
 
@@ -95,7 +95,7 @@ function Initialize-DscResourceMetaInfo
     $script:allDscResourceProperties = foreach ($dscResource in $allDscResources)
     {
         $moduleInfo = $modulesWithDscResources |
-            Where-Object { $_.Name -EQ $dscResource.ModuleName -and $_.Version -eq $dscResource.Version }
+            Where-Object { $_.Name -eq $dscResource.ModuleName -and $_.Version -eq $dscResource.Version }
 
         $dscModule = [System.Tuple]::Create($dscResource.Module.Name, [System.Version]$dscResource.Version)
         $exceptionCollection = [System.Collections.ObjectModel.Collection[System.Exception]]::new()
@@ -120,7 +120,7 @@ function Initialize-DscResourceMetaInfo
         else
         {
             Get-DscResourceProperty -ModuleInfo $moduleInfo -ResourceName $dscResource.Name |
-                Where-Object TypeConstraint -NotIn $script:standardCimTypes.CimType
+                Where-Object TypeConstraint -notin ($script:standardCimTypes.CimType -notlike 'MSFT_KeyValuePair*')
         }
 
         foreach ($cimProperty in $cimProperties)

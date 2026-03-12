@@ -2,10 +2,17 @@ BeforeDiscovery {
 
     Import-Module -Name DscBuildHelpers -Force
 
+    # Derive $requiredModulesPath if not already set by the build pipeline (InvokeBuild).
+    # In PS5, InvokeBuild script-scope variables are not visible inside Pester's scope.
+    if (-not $requiredModulesPath)
+    {
+        $requiredModulesPath = Join-Path -Path $PSScriptRoot -ChildPath '../../output/RequiredModules' | Convert-Path
+    }
+
     $allModules = Get-ModuleFromFolder -ModuleFolder $requiredModulesPath
     $allDscResources = Get-DscResourceFromModuleInFolder -ModuleFolder $requiredModulesPath -Modules $allModules
     $modulesWithDscResources = $allDscResources | Select-Object -ExpandProperty ModuleName -Unique
-    $modulesWithDscResources = $allModules | Where-Object Name -In $modulesWithDscResources
+    $modulesWithDscResources = $allModules | Where-Object Name -in $modulesWithDscResources
 
     [hashtable[]]$testCases = @()
     foreach ($dscResource in $allDscResources)
@@ -35,7 +42,7 @@ Describe 'Get-DscResourceProperty Tests' -Tags FunctionalQuality {
 
         if ($DscResourceType -eq 'Composite')
         {
-            Set-ItResult -Skipped -Because "Composite DSC resources are not supported"
+            Set-ItResult -Skipped -Because 'Composite DSC resources are not supported'
         }
 
         InModuleScope DscBuildHelpers -Parameters $_ {
